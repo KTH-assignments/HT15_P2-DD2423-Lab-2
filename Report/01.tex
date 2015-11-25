@@ -1,0 +1,52 @@
+\subsection{Question 1}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.8]{./images/Q1/tools.png}
+	\caption{Image \texttt{few256}.}
+	\label{fig:Q1:tools}
+\end{figure}
+
+
+\begin{figure}
+	\centering
+	\scalebox{0.9}{\input{./images/Q1/Q1.tex}}
+	\caption{Derivatives of image \texttt{few256} in the $x$ and $y$ directions. The simple differences operator is featured in the first row,
+	the central differences operator in the second, the Roberts cross operator in the third and the Sobel operator in the fourth.}
+	\label{fig:Q1:derivatives}
+\end{figure}
+
+
+In the case of the simple differences operator, the kernel used has a size of $1 \times 3$ and $3 \times 1$ when considering the x-wise and y-wise 
+derivatives respectively. Since \textit{all} elements of the kernel have to be multiplied by a pixel value of a $N \times M$ image,
+the former kernel will fit exactly $N$ times into the image x-wise (vertically), but only $M-2$ times y-wise (horizontally). In the general case where
+a kernel is of size $(2L+1) \times (2K+1)$, the output image's size will be $(N-L-1) \times (M-K-1)$.
+
+
+\begin{table}
+	\centering
+    \begin{tabular}{l|cc}
+    image           & size\_x & size\_y \\ \hline
+    few256          & 256     & 256     \\
+    SDO(few256)     & 256     & 254     \\
+    CDO(few256)     & 256     & 254     \\
+    Roberts(few256) & 255     & 255     \\
+    Sobel(few256)   & 254     & 254     \\
+    \end{tabular}
+    \caption{Image sizes for the origin image and the images of derivatives in the $x$-wise direction.}
+    \label{tbl:Q1:x_wise_sizes}
+\end{table}
+
+\begin{table}
+	\centering
+    \begin{tabular}{l|cc}
+    image           & size\_x & size\_y \\ \hline
+    few256          & 256     & 256     \\
+    SDO(few256)     & 254     & 256     \\
+    CDO(few256)     & 254     & 256     \\
+    Roberts(few256) & 255     & 255     \\
+    Sobel(few256)   & 254     & 254     \\
+    \end{tabular}
+    \caption{Image sizes for the origin image and the images of derivatives in the $y$-wise direction.}
+	\label{tbl:Q1:y_wise_sizes}
+\end{table}
