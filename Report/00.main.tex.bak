@@ -21,6 +21,11 @@
 	
 	\section{Difference operators}
 		\input{01}	
+		\newpage		
+	
+	\section{Point-wise thresholding of gradient magnitudes}
+		\input{02}
+		\newpage
 
 			
 \end{document}

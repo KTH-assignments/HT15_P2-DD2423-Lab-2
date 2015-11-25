@@ -9,10 +9,10 @@ tools = few256;
 % 2 for the central differences operator
 % 3 for the Roberts cross edge operator
 % 4 for the Sobel operator
-[dxtools_1 dytools_1] = deriv(tools, 1);
-[dxtools_2 dytools_2] = deriv(tools, 2);
-[dxtools_3 dytools_3] = deriv(tools, 3);
-[dxtools_4 dytools_4] = deriv(tools, 4);
+[dxtools_1 dytools_1] = deriv(tools, 1, 'valid');
+[dxtools_2 dytools_2] = deriv(tools, 2, 'valid');
+[dxtools_3 dytools_3] = deriv(tools, 3, 'valid');
+[dxtools_4 dytools_4] = deriv(tools, 4, 'valid');
 
 figure
 

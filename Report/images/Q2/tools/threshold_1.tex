@@ -1,0 +1,96 @@
+% This file was created by matlab2tikz.
+%
+%The latest updates can be retrieved from
+%  http://www.mathworks.com/matlabcentral/fileexchange/22022-matlab2tikz-matlab2tikz
+%where you can also make suggestions and rate matlab2tikz.
+%
+\begin{tikzpicture}
+
+\begin{axis}[%
+width=1.592in,
+height=1.592in,
+at={(1.054in,2.725in)},
+scale only axis,
+axis on top,
+separate axis lines,
+every outer x axis line/.append style={black},
+every x tick label/.append style={font=\color{black}},
+xmin=0.5,
+xmax=256.5,
+every outer y axis line/.append style={black},
+every y tick label/.append style={font=\color{black}},
+y dir=reverse,
+ymin=0.5,
+ymax=256.5,
+hide axis,
+title={SDO thresholded to 25}
+]
+\addplot [forget plot] graphics [xmin=0.5,xmax=256.5,ymin=0.5,ymax=256.5] {./images/Q2/tools/threshold_1-1.png};
+\end{axis}
+
+\begin{axis}[%
+width=1.592in,
+height=1.592in,
+at={(3.794in,2.725in)},
+scale only axis,
+axis on top,
+separate axis lines,
+every outer x axis line/.append style={black},
+every x tick label/.append style={font=\color{black}},
+xmin=0.5,
+xmax=256.5,
+every outer y axis line/.append style={black},
+every y tick label/.append style={font=\color{black}},
+y dir=reverse,
+ymin=0.5,
+ymax=256.5,
+hide axis,
+title={CDO thresholded to 15}
+]
+\addplot [forget plot] graphics [xmin=0.5,xmax=256.5,ymin=0.5,ymax=256.5] {./images/Q2/tools/threshold_1-2.png};
+\end{axis}
+
+\begin{axis}[%
+width=1.592in,
+height=1.592in,
+at={(1.054in,0.513in)},
+scale only axis,
+axis on top,
+separate axis lines,
+every outer x axis line/.append style={black},
+every x tick label/.append style={font=\color{black}},
+xmin=0.5,
+xmax=256.5,
+every outer y axis line/.append style={black},
+every y tick label/.append style={font=\color{black}},
+y dir=reverse,
+ymin=0.5,
+ymax=256.5,
+hide axis,
+title={Roberts thresholded to 30}
+]
+\addplot [forget plot] graphics [xmin=0.5,xmax=256.5,ymin=0.5,ymax=256.5] {./images/Q2/tools/threshold_1-3.png};
+\end{axis}
+
+\begin{axis}[%
+width=1.592in,
+height=1.592in,
+at={(3.794in,0.513in)},
+scale only axis,
+axis on top,
+separate axis lines,
+every outer x axis line/.append style={black},
+every x tick label/.append style={font=\color{black}},
+xmin=0.5,
+xmax=256.5,
+every outer y axis line/.append style={black},
+every y tick label/.append style={font=\color{black}},
+y dir=reverse,
+ymin=0.5,
+ymax=256.5,
+hide axis,
+title={Sobel thresholded to 100}
+]
+\addplot [forget plot] graphics [xmin=0.5,xmax=256.5,ymin=0.5,ymax=256.5] {./images/Q2/tools/threshold_1-4.png};
+\end{axis}
+\end{tikzpicture}%
