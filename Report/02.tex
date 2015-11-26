@@ -287,3 +287,24 @@
 	each histogram in figure \ref{fig:Q2:histogram_house_with_lv}.}
 	\label{fig:Q2:threshold_house_2_with_lv}
 \end{figure}
+
+
+
+\subsection{Question 2}
+
+Not in general. Applying a threshold in heterogeneous settings where the variations in luminosity are not the same for all edges can have the effect of 
+obtaining thin edges on the one hand, but on the other edges might disappear altogether.
+
+Another factor involved in extraction of thin edges is the kernel used to approximate the first derivative of an image. 
+We can observe this difference if we compare images produced by Robert's and Sobel's operators. Sobel's operator introduces a smoothing effect, whereas Robert's doesn't.
+
+Thresholding also has to do with the amount of noise adjacent to the real edges. Although not seen, there are non-zero pixels near the edges.
+Sobel's operator is more impervious to noise than Robert's, which is why the latter has less accuracy representing the real edges of an image, but
+does so in a clearer way (thinner).
+
+
+\subsection{Question 3}
+
+Not on its own. Applying a smoothing operator results to blurring and blurring is proportional to the length of an edge's ramp representation. The larger this length
+the more ambiguous an edge becomes, hence the less sharper it appears to be, hence the more difficult it is to detect it. This can be seen also in the histograms 
+of the blurred images: they become more skewed in comparison to the ones where no smoothing is applied.
