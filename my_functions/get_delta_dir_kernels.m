@@ -9,7 +9,7 @@ function [delta_x_kernel delta_y_kernel] = get_delta_dir_kernels(kernel_type)
   % Central differences operator
   if kernel_type == 2
     delta_x_kernel = [-0.5 0 0.5];
-    delta_y_kernel = [0.5; 0; -0.5];
+    delta_y_kernel = [-0.5; 0; 0.5];
   end
 
   % Roberts cross edge operator
@@ -24,6 +24,12 @@ function [delta_x_kernel delta_y_kernel] = get_delta_dir_kernels(kernel_type)
   if kernel_type == 4
     delta_x_kernel = [-1 0 1; -2 0 2; -1 0 1];
     delta_y_kernel = [1 2 1; 0 0 0; -1 -2 -1];
+  end
+
+  % Second order central differences
+  if kernel_type == 5
+    delta_x_kernel = [1 -2 1];
+    delta_y_kernel = [1; -2; 1];
   end
 
 end
