@@ -305,10 +305,14 @@ does so in a clearer way (thinner).
 
 \subsection{Question 3}
 
-Not on its own. Applying a smoothing operator results to blurring and blurring is proportional to the length of an edge's ramp representation. The larger this length
+Not on its own and not if $\sigma$ is large. Applying a smoothing operator results in blurring and blurring is proportional to the length of an 
+edge's ramp representation. The larger this length
 the more ambiguous an edge becomes, hence the less sharper it appears to be, hence the more difficult it is to detect it. This can be seen also in the histograms 
 of the blurred images: they become more skewed in comparison to the ones where no smoothing is applied. 
 
 Mathematically, the application of a smoothing operator will cause the the slope of the edge's ramp to decrease, since it will less sharp than before.
 This will result in a smaller value for the magnitude of its derivative, hence, in general, the edges will be less sharp. This of course is not something
 of help.
+
+However, smoothing with a gaussian kernel is helpful with respect to edge linking: blurring results in obtaining edges as continuous curves since it 
+acts as an agent of homogeneity.

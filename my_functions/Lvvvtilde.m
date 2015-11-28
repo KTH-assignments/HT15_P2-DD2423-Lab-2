@@ -1,4 +1,4 @@
-function pixels = Lv(inpic, shape)
+function pixels = Lvvvtilde(inpic, shape)
 
   if (nargin < 2)
     shape = 'same';
@@ -65,6 +65,6 @@ function pixels = Lv(inpic, shape)
 
 
 
-  pixels = Lx.^3 * Lxxx + 3 * Lx.^2 .* Ly .* Lxxy + 3 * Lx .* Ly.^2 .* Lxyy + Ly.^3 .* Lyyy;
+  pixels = Lx.^3 .* Lxxx + 3 * Lx.^2 .* Ly .* Lxxy + 3 * Lx .* Ly.^2 .* Lxyy + Ly.^3 .* Lyyy;
 
 end

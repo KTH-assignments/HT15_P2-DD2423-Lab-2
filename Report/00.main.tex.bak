@@ -26,6 +26,13 @@
 	\section{Point-wise thresholding of gradient magnitudes}
 		\input{02}
 		\newpage
-
+		
+	\section{Computing differential geometry descriptors}
+		\input{03}
+		\newpage
+		
+	\section{Extraction of edge segments}
+		\input{04}
+		\newpage
 			
 \end{document}

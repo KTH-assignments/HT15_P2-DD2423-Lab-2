@@ -1,4 +1,4 @@
-function pixels = Lv(inpic, shape)
+function pixels = Lvvtilde(inpic, shape)
 
   if (nargin < 2)
     shape = 'same';
