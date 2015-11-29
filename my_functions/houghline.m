@@ -14,8 +14,7 @@ function [linepar acc] = ...
   % We suppose an image of size NxN
   % rho: from -sqrt(2) * D to + sqrt(2) * D.
   % D is the diagonal distance of the image. D = sqrt(2 * N^2) = N * sqrt(2)
-  N = size(magnitude, 2);
-  rho_max_abs = 2*N; % See Gonzalez
+  rho_max_abs = (nrho) / 2; % See Gonzalez
   rho_coord_sys = linspace(-rho_max_abs, rho_max_abs, nrho);
 
   % -90 <= theta <= 90
@@ -39,10 +38,10 @@ function [linepar acc] = ...
     for curve_idx = 1:curve_length
 
       % round() or else x or y are not integers
-      x = round(curves(2, try_pointer));
-      y = round(curves(1, try_pointer));
+      x = curves(2, try_pointer);
+      y = curves(1, try_pointer);
 
-      mag_x_y = magnitude(x,y);
+      mag_x_y = magnitude(round(x),round(y));
 
       try_pointer = try_pointer + 1;
 
@@ -60,10 +59,10 @@ function [linepar acc] = ...
         % Find the accumulator cell rho must be in
         rho_placed = find(rho_coord_sys < rho, 1, 'last');
 
-        %acc(rho_placed, theta_idx) = acc(rho_placed, theta_idx) + 1;
+        acc(rho_placed, theta_idx) = acc(rho_placed, theta_idx) + 1;
         % It introduces a bias to more distinct edges
         %acc(rho_placed, theta_idx) = acc(rho_placed, theta_idx) + mag_x_y;
-        acc(rho_placed, theta_idx) = acc(rho_placed, theta_idx) + log(mag_x_y);
+        %acc(rho_placed, theta_idx) = acc(rho_placed, theta_idx) + log(mag_x_y);
 
       end
     end
@@ -72,7 +71,7 @@ function [linepar acc] = ...
 
   % ---------------- Extract local maxima from the accumulator -----------------
   % Smooth?
-  %acc = binsepsmoothiter(acc, 0.25, 10);
+  %acc = binsepsmoothiter(acc, 0.0, 10);
 
   [pos value anms] = locmax8(acc);
   [dummy indexvector] = sort(value);
@@ -103,6 +102,11 @@ function [linepar acc] = ...
     %anms(anms ~= 0) = 1;
     figure
     showgrey(anms)
+  end
+
+  if verbose > 1
+    figure
+    showgrey(binsepsmoothiter(acc, 0.5, 1));
   end
 
 end

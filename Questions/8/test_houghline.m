@@ -1,6 +1,6 @@
-pic = triangle128;
+%pic = triangle128;
 %pic = houghtest256;
-%pic = few256;
+pic = few256;
 %pic = phonecalc256;
 %pic = godthem256;
 
@@ -11,10 +11,10 @@ N = size(pic, 2);
 ntheta = 180 + 1;
 
 % rho: from -sqrt(2) * D to + sqrt(2) * D (plus 0). D is the diagonal distance
-% of the image. D = sqrt(2 * N^2)
-nrho = 2 * (2*N) + 1;
+% of the image.
+nrho = 2 * 2 * (N-1);
 
-[lines acc] = houghedgeline(pic, 4, 4, nrho, ntheta, 3, 1);
+[lines acc] = houghedgeline(pic, 4, 8, nrho, ntheta, 10, 2);
 
 lines_N = size(lines, 1);
 lines_M = size(lines, 2);
@@ -26,7 +26,7 @@ for i = 1 : lines_M
   y_0 = (lines(1,i) - x_0 * cos(lines(2,i))) / sin(lines(2,i));
 
   % Big enough to remove local errors
-  dx = N ^ 2;
+  dx = N^2;
   dy = (lines(1,i) - dx * cos(lines(2,i))) / sin(lines(2,i));
 
   xy_lines(1, 4 * (i-1) + 1) = 0;
