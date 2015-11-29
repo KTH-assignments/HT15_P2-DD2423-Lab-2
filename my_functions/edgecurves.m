@@ -1,4 +1,4 @@
-function edgecurves = extractedge(inpic, scale, threshold, shape)
+function edgecurves = extractedge(inpic, scale, threshold, shape, verbose)
 
   inpic_smoothed = discgaussfft(inpic, scale);
 
@@ -45,7 +45,9 @@ function edgecurves = extractedge(inpic, scale, threshold, shape)
 
   edgecurves = thresholdcurves(zerocross, lv_mask);
 
-  figure
-  overlaycurves(inpic, edgecurves);
+  if verbose > 0
+    figure
+    overlaycurves(inpic, edgecurves);
+  end
 
 end
