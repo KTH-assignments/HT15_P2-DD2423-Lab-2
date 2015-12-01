@@ -1,5 +1,16 @@
 % --------------------------------------- godthem256 ---------------------------------------
 
+\subsection{Image \texttt{godthem256}}
+
+\begin{figure}[H]
+	\centering
+  \scalebox{0.8}{\input{./images/Q4/smoothed.tex}}
+  \caption{The origin image \texttt{godthem256} and its smoothed variants.
+    From left to right and top to bottom: \texttt{scale}=$0.0001, 1, 4, 16, 64$.}
+	\label{fig:Q4_smoothed_house}
+\end{figure}
+
+
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.8]{./images/Q4/vv/0.0001.png}
@@ -45,6 +56,15 @@
 
 
 % --------------------------------------- few256 ---------------------------------------
+\subsection{Image \texttt{few256}}
+
+\begin{figure}[H]
+	\centering
+  \scalebox{0.8}{\input{./images/Q5/smoothed.tex}}
+  \caption{The origin image \texttt{few256} and its smoothed variants.
+    From left to right and top to bottom: \texttt{scale}=$0.0001, 1, 4, 16, 64$.}
+	\label{fig:Q5_smoothed_few256}
+\end{figure}
 
 \begin{figure}[H]
 	\centering
@@ -93,18 +113,52 @@
 
 \subsection{Question 4}
 
-Figures \ref{fig:Q4_vv_0.0001} - \ref{fig:Q4_vv_64} illustrate the points where the second order derivative of image \texttt{few256} is zero for different
-values of $scale$. What is apparent is that the higher the $scale$, that is the higher the variance of the gaussian filter used, the more the blurring 
-in the image. The higher the blurring the higher suppression of the noise present in the image, but also the lower the accuracy at approximating
-the true position of the edges. If blurring is performed in a high degree, edges of interest may disappear and thus not be located,
-or located, but with a certain drop in accuracy, since what is approximated are \textit{points} where the gradient magnitude is at maximum at the gradient's direction,
+Figures \ref{fig:Q4_vv_0.0001} - \ref{fig:Q4_vv_64} and
+\ref{fig:Q5_vv_0.0001} - \ref{fig:Q5_vv_64} illustrate the points where
+the second order derivative of the \texttt{godthem256} and \texttt{few256} images
+is zero for different values of $scale$. What is apparent here is that the higher the $scale$,
+that is the higher the variance of the gaussian filter used, the more the blurring
+in the image. The higher the blurring the higher suppression of the noise
+present in the image (that is the reason why spurious lines diminish for
+increasing values for scale), but also the lower the accuracy at approximating
+the true position of the edges. If blurring is performed in a high degree,
+edges of interest may disappear and thus not be located,
+or located, but with a certain drop in accuracy, since what is approximated are
+\textit{points} where the gradient magnitude is at maximum at the gradient's direction,
 and the shape of the edge is distorted due to the blurring.
 
 
 \subsection{Question 5}
 
+Figures \ref{fig:Q4_vvv_} and \ref{fig:Q5_vvv_} illustrate the points where the
+third order derivative of the \texttt{godthem256} and \texttt{few256} images
+is negative for different values of $scale$. What is apparent here is that
+the higher the blurring degree, the coarser, or, thicker the various edges
+become.
 
 \subsection{Question 6}
 
-As stated in the assignment notes, the gradient magnitude reaches a local maximum where the second order derivative $L_{vv} = 0$ \textit{and} $L_{vvv} < 0$.
-Hence we can combine these two pieces of information in order to improve on the response of plain $L_{vv}$.
+As stated in the assignment notes, the gradient magnitude reaches a local
+maximum where the second order derivative $L_{vv} = 0$ \textit{and} $L_{vvv} < 0$.
+Hence we can combine these two pieces of information in order to improve on the
+response of plain $L_{vv}$. Figures \ref{fig:Q6_tools} and \ref{fig:Q6_house}
+illustrate the results of an operation using the aforementioned pieces of
+information for images \texttt{few256} and \texttt{godthem256} for a
+$scale$ factor of $4$.
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.6]{./images/Q6/tools_combo.png}
+  \caption{The result of combining both $Lvv = 0$ and $Lvvv < 0$ on image \texttt{few256}.}
+	\label{fig:Q6_tools}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.6]{./images/Q6/house_combo.png}
+  \caption{The result of combining both $Lvv = 0$ and $Lvvv < 0$ on image \texttt{godthem256}.}
+	\label{fig:Q6_house}
+\end{figure}
+
+
