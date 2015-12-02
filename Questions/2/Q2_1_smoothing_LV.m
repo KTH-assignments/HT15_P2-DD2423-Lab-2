@@ -4,7 +4,7 @@ clear;
 tools = few256;
 
 % smooth tools
-tools_smoothed = discgaussfft(tools, 0.004);
+tools_smoothed = discgaussfft(tools, 4);
 
 % 1 for the simple differences operator
 % 2 for the central differences operator

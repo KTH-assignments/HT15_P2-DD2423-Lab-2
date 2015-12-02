@@ -11,18 +11,26 @@
 \begin{figure}[H]
 	\centering
 	\scalebox{0.9}{\input{./images/Q1/Q1.tex}}
-	\caption{Derivatives of image \texttt{few256} in the $x$ and $y$ directions. The simple differences operator is featured in the first row,
-	the central differences operator in the second, the Roberts cross operator in the third and the Sobel operator in the fourth.}
+	\caption{Derivatives of image \texttt{few256} in the $x$ and $y$ directions.
+    The simple differences operator is featured in the first row,
+	the central differences operator in the second, the Roberts cross operator
+in the third and the Sobel operator in the fourth.}
 	\label{fig:Q1:derivatives}
 \end{figure}
 
 
-In the case of the simple differences operator, the kernel used has a size of $1 \times 3$ and $3 \times 1$ when considering the x-wise and y-wise 
-derivatives respectively. Since \textit{all} elements of the kernel have to be multiplied by a pixel value of a $N \times M$ image (parameter \texttt{SHAPE = valid}),
-the former kernel will fit exactly $N$ times into the image $x$-wise (vertically), but only $M-2$ times $y$-wise (horizontally). In the general case where
-a kernel is of size $(2L+1) \times (2K+1)$, the output image's size will be $(N-L-1) \times (M-K-1)$. Table \ref{fig:Q1:kernel_sizes} shows the size of each
-kernel used by each operator for taking derivatives in both $x$-wise and $y$-wise directions. Tables \ref{tbl:Q1:x_wise_sizes} and 
-\ref{tbl:Q1:y_wise_sizes} illustrate the size of the output images for the various operators used to deliver edge detection.
+In the case of the simple differences operator, the kernel used has a size of
+$1 \times 3$ and $3 \times 1$ when considering the x-wise and y-wise
+derivatives respectively. Since \textit{all} elements of the kernel have to
+be multiplied by a pixel value of a $N \times M$ image (parameter \texttt{SHAPE = valid}),
+the former kernel will fit exactly $N$ times into the image $y$-wise (vertically),
+but only $M-2$ times $x$-wise (horizontally). In the general case where
+a kernel is of size $(2L+1) \times (2K+1)$, the output image's size will be
+$(N-L-1) \times (M-K-1)$. Table \ref{fig:Q1:kernel_sizes} shows the size of each
+kernel used by each operator for taking derivatives in both $x$-wise and $y$-wise
+directions. Tables \ref{tbl:Q1:x_wise_sizes} and
+\ref{tbl:Q1:y_wise_sizes} illustrate the size of the output images for the
+various operators used to deliver edge detection.
 
 
 \begin{table}
