@@ -38,6 +38,7 @@
 
 
 % -------------------------------------------- Smoothed tools --------------------------------------------
+\subsubsection{Image \texttt{few256} smoothed}
 \begin{figure}[H]
 	\centering
 	\scalebox{0.7}{\input{./images/Q2/tools_smoothed/2.1.tex}}
@@ -112,6 +113,7 @@
 
 
 % -------------------------------------------- Smoothed house --------------------------------------------
+\subsubsection{Image \texttt{godthem256} smoothed}
 \begin{figure}[H]
 	\centering
 	\scalebox{0.7}{\input{./images/Q2/house_smoothed/2.2.tex}}
@@ -191,6 +193,7 @@
 
 
 % -------------------------------------------- Smoothed tools --------------------------------------------
+\subsubsection{Image \texttt{few256} smoothed}
 \begin{figure}[H]
 	\centering
 	\scalebox{0.7}{\input{./images/Q2/with_lv/tools_smoothed/2.1.tex}}
@@ -262,6 +265,7 @@
 
 
 % -------------------------------------------- Smoothed house --------------------------------------------
+\subsubsection{Image \texttt{godthem256} smoothed}
 \begin{figure}[H]
 	\centering
 	\scalebox{0.7}{\input{./images/Q2/with_lv/house_smoothed/2.2.tex}}
@@ -300,7 +304,7 @@
 
 Not in general. Applying a threshold in heterogeneous settings where the
 variations in luminosity are not the same for all edges
-(hence the different slopes for the intensity) can have the effect of
+(hence the different slopes in intensity) can have the effect of
 obtaining thin edges for some objects on the one hand,
 but on the other edges might disappear altogether for others.
 
@@ -319,18 +323,19 @@ does so in a clearer way (thinner).
 \subsection{Question 3}
 
 Not on its own and not if $\sigma$ is large. Applying a smoothing operator
-results in blurring and the amount of blurring is proportional to the length of an
-edge's ramp representation. The larger this length
-the more ambiguous an edge becomes, hence the less sharper it appears to be,
-hence the more difficult it is to detect it. This can be seen also in the histograms
-of the blurred images: they become more skewed in comparison to the ones where
-no smoothing is applied.
+results in blurring and the amount of blurring is proportional to the length
+and inversely proportional to the slope of an edge's ramp representation.
+The larger this length the more ambiguous an edge becomes,
+hence the less sharper it appears to be, hence the more difficult it may be to
+detect it if a threshold is applied.
+This can be seen also in the histograms of the blurred images: they become more
+skewed in comparison to the ones where no smoothing is applied.
 
 Mathematically, the application of a smoothing operator will cause the the
 slope of the edge's ramp to decrease, since it will less sharp than before.
 This will result in a smaller value for the magnitude of its derivative,
-hence, in general, the edges will be less sharp. This of course is not something
-of help.
+hence, in general, the edges will be less sharp and more thick.
+This of course is not something of help.
 
 However, smoothing with a gaussian kernel is helpful with respect to edge
 linking: blurring results in obtaining edges as continuous curves since it

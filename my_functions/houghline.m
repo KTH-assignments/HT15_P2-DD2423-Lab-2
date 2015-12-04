@@ -8,7 +8,8 @@ function [linepar acc] = ...
 
   % TODO careful: spacing between a_min and a_max using linspace is
   % (a_max - a_min) / (n-1). Hence nrho and htheta should be 2*a_max + 1 in the
-  % function calling this one
+  % function calling this one.
+  % UPDATE: not for rho
 
 
   % We suppose an image of size NxN
@@ -59,10 +60,10 @@ function [linepar acc] = ...
         % Find the accumulator cell rho must be in
         rho_placed = find(rho_coord_sys < rho, 1, 'last');
 
-        acc(rho_placed, theta_idx) = acc(rho_placed, theta_idx) + 1;
+        %acc(rho_placed, theta_idx) = acc(rho_placed, theta_idx) + 1;
         % It introduces a bias to more distinct edges
         %acc(rho_placed, theta_idx) = acc(rho_placed, theta_idx) + mag_x_y;
-        %acc(rho_placed, theta_idx) = acc(rho_placed, theta_idx) + log(mag_x_y);
+        acc(rho_placed, theta_idx) = acc(rho_placed, theta_idx) + log(mag_x_y);
 
       end
     end

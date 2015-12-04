@@ -36,6 +36,14 @@ subplot(2,2,4);
 showgrey(gradmagntools_4);
 title('Sobel')
 
+%max(gradmagntools_1(:))
+%min(gradmagntools_1(:))
+%max(gradmagntools_2(:))
+%min(gradmagntools_2(:))
+%max(gradmagntools_3(:))
+%min(gradmagntools_3(:))
+%max(gradmagntools_4(:))
+%min(gradmagntools_4(:))
 
 figure
 subplot(2,2,1);
